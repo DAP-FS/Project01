@@ -1,0 +1,174 @@
+########################################
+Chapter 01: Introduction to Python
+########################################
+
+.. contents:: Table of Contents
+   :depth: 4
+   :local:
+
+Welcome to the first chapter of our Python workshop! This chapter introduces you to the fundamentals of Python programming.
+
+**Learning Objectives**
+
+By the end of this chapter, you will be able to:
+
+- Understand what Python is and why it's popular
+- Install Python and Jupyter Notebook on your system  
+- Write and execute your first Python programs
+- Navigate the Python development environment
+
+***************
+What is Python?
+***************
+
+Python is a high-level, interpreted programming language created by Guido van Rossum in 1991[1]. It emphasizes code readability and simplicity, making it an excellent choice for beginners.
+
+Key Features
+============
+
+Python offers several advantages for new programmers:
+
+- **Simple syntax**: Python code reads almost like English
+- **Versatile**: Used in web development, data science, AI, and automation
+- **Large community**: Extensive documentation and third-party libraries
+- **Cross-platform**: Runs on Windows, macOS, and Linux
+
+Why Choose Python for Data Science?
+-----------------------------------
+
+Python has become the go-to language for data science because:
+
+- Rich ecosystem of data science libraries (NumPy, pandas, matplotlib)
+- Interactive development with Jupyter notebooks
+- Integration with machine learning frameworks
+
+***********************
+Setting Up Your Environment
+***********************
+
+Let's get your Python environment ready for the workshop.
+
+Installing Python
+==================
+
+Follow these steps to install Python on your system:
+
+**For Windows Users**
+
+1. Visit https://python.org/downloads
+2. Download the latest Python 3.x version
+3. Run the installer and check "Add Python to PATH"
+4. Verify installation by opening Command Prompt and typing: ``python --version``
+
+**For macOS Users**
+
+1. Install using Homebrew: ``brew install python3``
+2. Or download from the official website
+3. Verify with: ``python3 --version``
+
+Installing Jupyter Notebook
+============================
+
+Jupyter Notebook provides an interactive environment perfect for learning Python:
+
+.. code-block:: bash
+
+   pip install notebook
+
+To start Jupyter Notebook:
+
+.. code-block:: bash
+
+   jupyter notebook
+
+This opens a browser window where you can create and run Python code interactively.
+
+*******************
+Your First Program
+*******************
+
+Let's write your first Python program to get familiar with the basics.
+
+Hello, World!
+=============
+
+Create a new Jupyter notebook and enter this code in a cell:
+
+.. code-block:: python
+
+   print("Hello, Python Workshop!")
+   print("Welcome to programming!")
+
+Press **Shift + Enter** to run the cell. You should see:
+
+.. code-block:: none
+
+   Hello, Python Workshop!
+   Welcome to programming!
+
+Interactive Input
+=================
+
+Try this interactive program:
+
+.. code-block:: python
+
+   name = input("What's your name? ")
+   print(f"Nice to meet you, {name}!")
+
+This demonstrates:
+
+- Variable assignment (``name = ...``)
+- User input (``input()`` function)
+- String formatting (f-strings)
+- Output (``print()`` function)
+
+********************
+Hands-On Activities
+********************
+
+Complete these exercises to practice what you've learned:
+
+Exercise 1: Personal Introduction
+=================================
+
+Create a program that asks for your name, age, and favorite subject, then displays a personalized message.
+
+.. note::
+   
+   Try using f-strings for formatting: ``f"Hello {name}, you are {age} years old!"``
+
+Exercise 2: Simple Calculator
+=============================
+
+Write a program that:
+
+1. Asks the user for two numbers
+2. Calculates their sum, difference, and product
+3. Displays all results clearly
+
+*******
+Summary
+*******
+
+In this chapter, you accomplished several important milestones:
+
+✅ **Installed** Python and Jupyter Notebook on your system  
+✅ **Executed** your first Python programs  
+✅ **Learned** basic input/output operations  
+✅ **Practiced** with hands-on exercises  
+
+**Key Concepts Covered**
+
+- Python installation and setup
+- Jupyter Notebook environment
+- Basic syntax and operations
+- Interactive programming concepts
+
+**What's Next?**
+
+In Chapter 02, we'll dive deeper into Python data types, variables, and basic operations that form the foundation of all Python programs.
+
+.. tip::
+   
+   Keep your Jupyter notebook open and experiment with the code examples. The best way to learn programming is through practice!

@@ -1,0 +1,50 @@
+=============================
+Welcome to the Python Workshop!
+=============================
+
+.. note::
+
+   **Announcement:**  
+   Our hands-on Python for Beginners workshop is here!  
+   Duration: **6 hours**  
+   Suitable for: **BTech students interested in Machine Learning and Data Science**
+
+----
+
+**About the Workshop**
+
+Welcome! This beginner-friendly workshop will guide you through essential Python programming skills, step by step.  
+Through interactive notebooks and practical examples, you’ll gain the confidence to start your journey in data science and machine learning.
+
+**What to Expect:**
+
+- A clear, modular structure — progress from basics to real-world applications
+- Notebook-based lessons for hands-on practice
+- Friendly for beginners — *no prior coding required!*
+- Q&A and mini-project sessions
+
+**Schedule Overview:**
+
+- Python basics and programming concepts
+- Data analysis and visualization
+- An introduction to machine learning
+
+----
+
+**Let’s get started! Use the navigation at left or below to jump into each module.**
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Workshop Modules
+
+   intro
+   speakers
+   chapter01
+   chapter02
+   chapter03
+
+
+----
+
+**If you have questions or need help, watch for announcements here or check the resources page. Happy coding!**
+

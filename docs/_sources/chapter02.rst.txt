@@ -1,0 +1,274 @@
+##############################################
+Chapter 02: Python Data Types, Variables, and Basic Operations
+##############################################
+
+.. contents:: Table of Contents
+   :depth: 4
+   :local:
+
+Welcome to Chapter 02!
+
+In this chapter, you will learn the essential building blocks of Python programming — data types, variables, and basic operations. Mastering these concepts is critical for writing effective Python code and progressing into data science and machine learning.
+
+*******************
+Objectives
+*******************
+
+After completing this chapter, you will be able to:
+
+- Understand Python's core data types (numbers, strings, booleans, lists, tuples, dictionaries)
+- Create and use variables to store data
+- Perform arithmetic and logical operations
+- Work with simple input and output
+- Practice writing clean, readable Python code
+
+*******************
+Python Data Types Overview
+*******************
+
+Python is dynamically typed, meaning you don’t have to declare variable types explicitly. Here are the most common data types you will encounter:
+
+1. **Numeric Types**  
+   - ``int`` — Integer numbers, e.g., ``1``, ``100``, ``-30``  
+   - ``float`` — Floating point (decimal) numbers, e.g., ``3.14``, ``-0.001``
+
+2. **Boolean Type**  
+   - ``bool`` — Represents truth values: ``True`` or ``False``
+
+3. **String Type**  
+   - ``str`` — Text enclosed in single or double quotes, e.g., ``"Hello"``, ``'Python'``
+
+4. **Sequence Types**  
+   - ``list`` — Mutable ordered collection, e.g., ``[10, 20, 30]``  
+   - ``tuple`` — Immutable ordered collection, e.g., ``(1, 2, 3)``
+
+5. **Mapping Type**  
+   - ``dict`` — Key-value pairs, e.g., ``{"name": "Ashwini", "age": 20}``
+
+*******************
+Variables: Storing Data
+*******************
+
+Variables are names you give to data you want to store and manipulate.
+
+### Rules for Naming Variables
+
+- Must start with a letter (a-z, A-Z) or underscore ``_``
+- Cannot start with a number
+- Case-sensitive (``age`` ≠ ``Age``)
+- No Python keywords (e.g., ``for``, ``if``, ``class``)
+
+### Assigning Variables
+
+.. code-block:: python
+
+   age = 20
+   name = "Ashwini"
+   is_student = True
+   height = 5.7
+
+### Check Variable Type
+
+.. code-block:: python
+
+   print(type(age))        # <class 'int'>
+   print(type(name))       # <class 'str'>
+   print(type(is_student)) # <class 'bool'>
+
+*******************
+Basic Operations
+*******************
+
+### Arithmetic Operators
+
++----------+--------------------+----------------+--------------+
+| Operator | Description        | Example        | Result       |
++==========+====================+================+==============+
+| ``+``    | Addition           | ``2 + 3``      | ``5``        |
++----------+--------------------+----------------+--------------+
+| ``-``    | Subtraction        | ``5 - 2``      | ``3``        |
++----------+--------------------+----------------+--------------+
+| ``*``    | Multiplication     | ``3 * 4``      | ``12``       |
++----------+--------------------+----------------+--------------+
+| ``/``    | Division (float)   | ``10 / 3``     | ``3.3333...``|
++----------+--------------------+----------------+--------------+
+| ``//``   | Floor Division     | ``10 // 3``    | ``3``        |
++----------+--------------------+----------------+--------------+
+| ``%``    | Modulus (Remainder)| ``10 % 3``     | ``1``        |
++----------+--------------------+----------------+--------------+
+| ``**``   | Power (Exponent)   | ``2 ** 3``     | ``8``        |
++----------+--------------------+----------------+--------------+
+
+### Comparison Operators
+
++----------+-------------------------+------------------+-----------------------+
+| Operator | Description             | Example          | Value                 |
++==========+=========================+==================+=======================+
+| ``==``   | Equal                   | ``age == 20``    | ``True`` or ``False`` |
++----------+-------------------------+------------------+-----------------------+
+| ``!=``   | Not equal               | ``age != 18``    | ``True`` or ``False`` |
++----------+-------------------------+------------------+-----------------------+
+| ``<``    | Less than               | ``age < 25``     | ``True`` or ``False`` |
++----------+-------------------------+------------------+-----------------------+
+| ``>``    | Greater than            | ``age > 15``     | ``True`` or ``False`` |
++----------+-------------------------+------------------+-----------------------+
+| ``<=``   | Less than or equal to   | ``age <= 20``    | ``True`` or ``False`` |
++----------+-------------------------+------------------+-----------------------+
+| ``>=``   | Greater than or equal to| ``age >= 30``    | ``True`` or ``False`` |
++----------+-------------------------+------------------+-----------------------+
+
+### Logical Operators
+
++----------+-----------------+----------------------+-----------------+
+| Operator | Description     | Example              | Result          |
++==========+=================+======================+=================+
+| ``and``  | Logical AND     | ``True and False``   | ``False``       |
++----------+-----------------+----------------------+-----------------+
+| ``or``   | Logical OR      | ``True or False``    | ``True``        |
++----------+-----------------+----------------------+-----------------+
+| ``not``  | Logical NOT     | ``not True``         | ``False``       |
++----------+-----------------+----------------------+-----------------+
+
+*******************
+Working with Strings
+*******************
+
+Strings hold text data and support many operations:
+
+.. code-block:: python
+
+   name = "Python Workshop"
+
+   # Length of string
+   print(len(name))   # 15
+
+   # Access characters by index (0-based)
+   print(name[0])     # 'P'
+   print(name[-1])    # 'p'
+
+   # Slice substring
+   print(name[0:6])   # 'Python'
+
+   # Concatenate strings
+   greeting = "Hello, " + name
+   print(greeting)    # 'Hello, Python Workshop'
+
+   # String methods
+   print(name.lower())    # 'python workshop'
+   print(name.upper())    # 'PYTHON WORKSHOP'
+   print(name.replace("Workshop", "Course"))  # 'Python Course'
+
+*******************
+Lists, Tuples, and Dictionaries (Introduction)
+*******************
+
+### Lists (Mutable)
+
+.. code-block:: python
+
+   fruits = ["apple", "banana", "cherry"]
+   fruits.append("date")
+   print(fruits)              # ['apple', 'banana', 'cherry', 'date']
+   print(fruits[1])           # 'banana'
+
+### Tuples (Immutable)
+
+.. code-block:: python
+
+   coordinates = (10.0, 20.0)
+   print(coordinates)         # (10.0, 20.0)
+
+### Dictionaries (Key-Value Store)
+
+.. code-block:: python
+
+   student = {
+       "name": "Ashwini",
+       "age": 20,
+       "courses": ["Math", "Computer Science"]
+   }
+
+   print(student["name"])     # 'Ashwini'
+
+*******************
+Input and Output
+*******************
+
+Learn to get user input and display results:
+
+.. code-block:: python
+
+   name = input("Enter your name: ")
+   print(f"Welcome, {name}!")
+
+*******************
+Hands-On Exercises
+*******************
+
+**Exercise 1: Variables and Data Types**
+
+Write a Python program that:
+
+- Asks the user to enter their name, age, height (in meters), and if they are a student (yes/no)
+- Stores these values in appropriate variables with correct data types
+- Prints a summary message like:
+
+::
+
+   Hello, Ashwini!
+   You are 20 years old, 1.7 meters tall.
+   Student status: Yes
+
+---
+
+**Exercise 2: Basic Calculator**
+
+Write a program that asks the user for two numbers and prints their:
+
+- Sum  
+- Difference  
+- Product  
+- Quotient  
+
+Display results clearly.
+
+---
+
+**Exercise 3: String Manipulation**
+
+Given an input string from the user, write a program that:
+
+- Prints the string length  
+- Prints the string in uppercase  
+- Prints the first and last characters  
+- Prints the string reversed  
+
+*******************
+Summary
+*******************
+
+In this chapter you learned:
+
+- Python core data types and variables  
+- Arithmetic, comparison, and logical operations  
+- Basic string handling and collections introduction  
+- Taking input from users and printing outputs  
+- Practiced with exercises to reinforce fundamentals  
+
+This foundation will empower you to write more complex Python programs in coming chapters.
+
+*******************
+Additional Resources
+*******************
+
+- Official Python Data Types: https://docs.python.org/3/library/stdtypes.html  
+- Python Input and Output Docs: https://docs.python.org/3/tutorial/inputoutput.html  
+- Interactive Python tutorial: https://www.learnpython.org/
+
+----
+
+.. note::
+
+   Practice regularly. Try modifying the exercises or combining parts to build small projects.
+
+Happy Coding!

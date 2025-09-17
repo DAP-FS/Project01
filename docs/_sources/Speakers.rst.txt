@@ -1,0 +1,28 @@
+===================
+Speakers
+===================
+
+Meet our esteemed speakers for the Python Workshop!
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 60 20
+
+   * - Name
+     - Bio
+     - Contact
+   * - Ashwini Mathur
+     - Assistant Professor, SoCSE, RVU Bangalore.
+     - ashwini.mathur@rvu.edu
+   * - Dr. Shivi Sharma
+     - Associate Professor, SoCSE, RVU Bangalore.
+     - shivi.sharma@rvu.edu
+   * - Soheb Ahmed
+     - Assistant Professor, SoCSE, RVU Bangalore.
+     - soheb.ahmed@rvu.edu
+   * - Sonam V Maju
+     - Assistant Professor, SoCSE, RVU Bangalore.
+     - sonam.maju@rvu.edu
+   * - Mansa HC
+     - Assistant Professor, SoCSE, RVU Bangalore.
+     - mansa.hc@rvu.edu
