@@ -58,7 +58,7 @@ This comprehensive resource covers the **mathematical foundations of computation
 **Learning Methodology**
 ========================
 
-**🎯 For Weak Students:**
+**🎯 For Absolute Beginner Students:**
 
 1. **Visual Learning** - Each concept includes state diagrams and visual representations
 2. **Step-by-Step Construction** - Detailed algorithms for building automata
