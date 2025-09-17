@@ -73,56 +73,105 @@ Key difference: **δ: Q × Σ → 2^Q** (transitions to subsets of states)
 1. Track the last two characters seen
 2. Use states to remember: nothing, last was 0, last was 1, last two were 01
 
-.. code-block:: text
+**Formal Definition:**
 
-   States: Q = {q₀, q₁, q₂, q₃}
-   Alphabet: Σ = {0, 1}
-   Start state: q₀
-   Accept states: F = {q₂}
-   
-   State meanings:
-   q₀: initial state / last char was 1
-   q₁: last character was 0  
-   q₂: last two characters were 01 (ACCEPT)
-   q₃: dead state (not used in this example)
+* **States:** Q = {q₀, q₁, q₂}
+* **Alphabet:** Σ = {0, 1}
+* **Start state:** q₀
+* **Accept states:** F = {q₂}
+
+**State meanings:**
+* q₀: initial state / last char was 1
+* q₁: last character was 0  
+* q₂: last two characters were 01 (ACCEPT)
 
 **Transition Function δ:**
 
-.. code-block:: text
-
-   δ(q₀, 0) = q₁
-   δ(q₀, 1) = q₀
-   δ(q₁, 0) = q₁  
-   δ(q₁, 1) = q₂
-   δ(q₂, 0) = q₁
-   δ(q₂, 1) = q₀
+.. math::
+   
+   \begin{array}{c|cc}
+   \delta & 0 & 1 \\
+   \hline
+   \rightarrow q_0 & q_1 & q_0 \\
+   q_1 & q_1 & q_2 \\
+   q_2^* & q_1 & q_0
+   \end{array}
 
 **State Diagram:**
 
-.. code-block:: text
+.. raw:: latex
 
-          0        1
-   →q₀ -----→ q₁ -----→ ((q₂))
-    ↑  ↖1      ↑0       ↙0
-    └────────────────────┘
+   \begin{center}
+   \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, auto]
+   \tikzstyle{every state}=[fill=lightblue!20,draw=blue,text=black,minimum size=1cm]
+   
+   \node[state, initial] (q0) {$q_0$};
+   \node[state, right of=q0] (q1) {$q_1$};
+   \node[state, accepting, right of=q1] (q2) {$q_2$};
+   
+   \path[->] 
+   (q0) edge[loop above] node {1} (q0)
+        edge node {0} (q1)
+   (q1) edge[loop above] node {0} (q1)
+        edge node {1} (q2)
+   (q2) edge[bend left=45] node {0} (q1)
+        edge[bend right=60] node {1} (q0);
+   \end{tikzpicture}
+   \end{center}
+
+**Example Execution:**
+Input string "1001" → q₀ →¹ q₀ →⁰ q₁ →⁰ q₁ →¹ q₂ ✓ **ACCEPT**
 
 **Example 2: NFA with ε-transitions**
 ------------------------------------
 
 **Problem:** Build an NFA that accepts strings containing "ab" or "ba" as substrings.
 
-.. code-block:: text
+**Solution Strategy:**
+* Use parallel computation paths
+* Path 1: Looking for "ab" 
+* Path 2: Looking for "ba"
+* ε-transitions for nondeterministic branching
 
-   This requires parallel computation paths:
-   Path 1: Looking for "ab"
-   Path 2: Looking for "ba"
+**Formal Definition:**
+
+* **States:** Q = {q₀, q₁, q₂, q₃, q₄, q₅}
+* **Alphabet:** Σ = {a, b}
+* **Start state:** q₀
+* **Accept states:** F = {q₅}
+
+**State Diagram:**
+
+.. raw:: latex
+
+   \begin{center}
+   \begin{tikzpicture}[shorten >=1pt, node distance=2cm, auto]
+   \tikzstyle{every state}=[fill=lightgreen!20,draw=darkgreen,text=black,minimum size=0.8cm]
    
-   States: {q₀, q₁, q₂, q₃, q₄, q₅}
+   \node[state, initial] (q0) {$q_0$};
+   \node[state, above right of=q0] (q1) {$q_1$};
+   \node[state, right of=q1] (q2) {$q_2$};
+   \node[state, below right of=q0] (q3) {$q_3$};
+   \node[state, right of=q3] (q4) {$q_4$};
+   \node[state, accepting, right of=q2, yshift=-1cm] (q5) {$q_5$};
    
-   q₀: start state
-   q₁, q₂: tracking "ab" pattern  
-   q₃, q₄: tracking "ba" pattern
-   q₅: accept state (found either pattern)
+   \path[->]
+   (q0) edge[loop left] node {a,b} (q0)
+        edge node {$\varepsilon$} (q1)
+        edge node {$\varepsilon$} (q3)
+   (q1) edge node {a} (q2)
+   (q2) edge node {b} (q5)
+   (q3) edge node {b} (q4)
+   (q4) edge node {a} (q5)
+   (q5) edge[loop right] node {a,b} (q5);
+   \end{tikzpicture}
+   \end{center}
+
+**Path Analysis:**
+* **For "ab":** q₀ →ᵋ q₁ →ᵃ q₂ →ᵇ q₅
+* **For "ba":** q₀ →ᵋ q₃ →ᵇ q₄ →ᵃ q₅
+* **Self-loop on q₀:** Process other characters
+* **Self-loop on q₅:** Accept any suffix after finding pattern
 
 ----
 
@@ -145,43 +194,71 @@ Design a DFA that accepts all strings over {0,1} with an even number of 0s and a
 .. admonition:: Solution
    :class: dropdown
 
-   .. code-block:: text
+   **Strategy:** Track parity of both 0s and 1s using state combinations.
 
-      States: Q = {q₀₀, q₀₁, q₁₀, q₁₁}
-      where qᵢⱼ means: i = parity of 0s, j = parity of 1s
-      (0 = even, 1 = odd)
+   **Formal Definition:**
+   * **States:** Q = {q₀₀, q₀₁, q₁₀, q₁₁} where qᵢⱼ means: i = parity of 0s, j = parity of 1s (0 = even, 1 = odd)
+   * **Start state:** q₀₀ (even 0s, even 1s)
+   * **Accept state:** F = {q₀₁} (even 0s, odd 1s)
+
+   **Transition Table:**
+   
+   .. math::
       
-      Start state: q₀₀ (even 0s, even 1s)
-      Accept state: F = {q₀₁} (even 0s, odd 1s)
+      \begin{array}{c|cc}
+      \delta & 0 & 1 \\
+      \hline
+      \rightarrow q_{00} & q_{10} & q_{01} \\
+      q_{01}^* & q_{11} & q_{00} \\
+      q_{10} & q_{00} & q_{11} \\
+      q_{11} & q_{01} & q_{10}
+      \end{array}
+
+   **State Diagram:**
+
+   .. raw:: latex
+
+      \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=3cm, auto]
+      \tikzstyle{every state}=[fill=lightyellow!20,draw=orange,text=black,minimum size=1cm]
       
-      Transitions:
-      δ(q₀₀, 0) = q₁₀    δ(q₀₀, 1) = q₀₁
-      δ(q₀₁, 0) = q₁₁    δ(q₀₁, 1) = q₀₀  
-      δ(q₁₀, 0) = q₀₀    δ(q₁₀, 1) = q₁₁
-      δ(q₁₁, 0) = q₀₁    δ(q₁₁, 1) = q₁₀
+      \node[state, initial] (q00) {$q_{00}$};
+      \node[state, accepting, right of=q00] (q01) {$q_{01}$};
+      \node[state, below of=q00] (q10) {$q_{10}$};
+      \node[state, below of=q01] (q11) {$q_{11}$};
       
-      State Diagram:
-               0           1
-      →q₀₀ ⟷ q₁₀     q₀₀ ⟷ ((q₀₁))
-         ↑↓ 1   ↑↓ 1      ↑↓ 0   ↑↓ 0  
-       q₀₁ ⟷ q₁₁     q₁₀ ⟷ q₁₁
-           0           1
+      \path[->]
+      (q00) edge[bend left] node {1} (q01)
+            edge[bend right] node {0} (q10)
+      (q01) edge[bend left] node {1} (q00)
+            edge[bend left] node {0} (q11)
+      (q10) edge[bend right] node {0} (q00)
+            edge[bend right] node {1} (q11)
+      (q11) edge[bend left] node {0} (q01)
+            edge[bend right] node {1} (q10);
+      \end{tikzpicture}
+      \end{center}
+
+   **Example:** String "110" → q₀₀ →¹ q₀₁ →¹ q₀₀ →⁰ q₁₀ ✗ **REJECT** (final state not accepting)
 
 **Exercise 2: NFA to DFA Conversion**
 ------------------------------------
 
 Convert the following NFA to an equivalent DFA using subset construction:
 
-.. code-block:: text
+**Given NFA:** N = ({q₀, q₁, q₂}, {a, b}, δ, q₀, {q₂})
 
-   NFA N = ({q₀, q₁, q₂}, {a, b}, δ, q₀, {q₂})
+**NFA Transition Function:**
+
+.. math::
    
-   δ(q₀, a) = {q₀, q₁}
-   δ(q₀, b) = {q₀}
-   δ(q₁, a) = ∅
-   δ(q₁, b) = {q₂}
-   δ(q₂, a) = ∅  
-   δ(q₂, b) = ∅
+   \begin{array}{c|cc}
+   \delta_{NFA} & a & b \\
+   \hline
+   \rightarrow q_0 & \{q_0, q_1\} & \{q_0\} \\
+   q_1 & \emptyset & \{q_2\} \\
+   q_2^* & \emptyset & \emptyset
+   \end{array}
 
 .. hint::
    
@@ -195,36 +272,60 @@ Convert the following NFA to an equivalent DFA using subset construction:
 .. admonition:: Solution  
    :class: dropdown
 
-   .. code-block:: text
+   **Step-by-step Subset Construction:**
 
-      Step-by-step subset construction:
+   **Step 1:** Start with {q₀}
+   
+   **Step 2:** Compute transitions from {q₀}:
+   * on 'a': δ(q₀, a) = {q₀, q₁}
+   * on 'b': δ(q₀, b) = {q₀}
+   
+   **Step 3:** Compute transitions from {q₀, q₁}:
+   * on 'a': δ(q₀, a) ∪ δ(q₁, a) = {q₀, q₁} ∪ ∅ = {q₀, q₁}
+   * on 'b': δ(q₀, b) ∪ δ(q₁, b) = {q₀} ∪ {q₂} = {q₀, q₂}
+   
+   **Step 4:** Compute transitions from {q₀, q₂}:
+   * on 'a': δ(q₀, a) ∪ δ(q₂, a) = {q₀, q₁} ∪ ∅ = {q₀, q₁}
+   * on 'b': δ(q₀, b) ∪ δ(q₂, b) = {q₀} ∪ ∅ = {q₀}
+
+   **Final DFA:**
+   * **States:** {A, B, C} where A={q₀}, B={q₀,q₁}, C={q₀,q₂}
+   * **Start:** A
+   * **Accept:** {C} (contains q₂)
+
+   **DFA Transition Table:**
+   
+   .. math::
       
-      Start: {q₀}
+      \begin{array}{c|cc}
+      \delta_{DFA} & a & b \\
+      \hline
+      \rightarrow A & B & A \\
+      B & B & C \\
+      C^* & B & A
+      \end{array}
+
+   **DFA State Diagram:**
+
+   .. raw:: latex
+
+      \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, auto]
+      \tikzstyle{every state}=[fill=lightcyan!20,draw=teal,text=black,minimum size=1cm]
       
-      From {q₀}:
-      - on 'a': δ(q₀, a) = {q₀, q₁}
-      - on 'b': δ(q₀, b) = {q₀}
+      \node[state, initial] (A) {$A$};
+      \node[state, right of=A] (B) {$B$};
+      \node[state, accepting, right of=B] (C) {$C$};
       
-      From {q₀, q₁}:
-      - on 'a': δ(q₀, a) ∪ δ(q₁, a) = {q₀, q₁} ∪ ∅ = {q₀, q₁}
-      - on 'b': δ(q₀, b) ∪ δ(q₁, b) = {q₀} ∪ {q₂} = {q₀, q₂}
-      
-      From {q₀, q₂}:
-      - on 'a': δ(q₀, a) ∪ δ(q₂, a) = {q₀, q₁} ∪ ∅ = {q₀, q₁}
-      - on 'b': δ(q₀, b) ∪ δ(q₂, b) = {q₀} ∪ ∅ = {q₀}
-      
-      DFA states: {{q₀}, {q₀, q₁}, {q₀, q₂}}
-      Accept states: {{q₀, q₂}} (contains q₂)
-      
-      Final DFA:
-      States: {A, B, C} where A={q₀}, B={q₀,q₁}, C={q₀,q₂}
-      Start: A
-      Accept: {C}
-      
-      Transitions:
-      δ(A, a) = B    δ(A, b) = A
-      δ(B, a) = B    δ(B, b) = C  
-      δ(C, a) = B    δ(C, b) = A
+      \path[->]
+      (A) edge[loop above] node {b} (A)
+          edge node {a} (B)
+      (B) edge[loop above] node {a} (B)
+          edge node {b} (C)
+      (C) edge[bend left=45] node {a} (B)
+          edge[bend right=60] node {b} (A);
+      \end{tikzpicture}
+      \end{center}
 
 **Exercise 3: Language Design**
 ------------------------------
@@ -242,37 +343,59 @@ Design a DFA that accepts the language L = {w ∈ {a,b}* | w has substring "aba"
 .. admonition:: Solution
    :class: dropdown
 
-   .. code-block:: text
+   **Strategy:** Track the longest prefix of "aba" that matches a suffix of the input read so far.
+   
+   **Formal Definition:**
+   * **States:** {q₀, q₁, q₂, q₃}
+   * **q₀:** no useful progress toward "aba"
+   * **q₁:** last character was 'a' (potential start of "aba")  
+   * **q₂:** last two characters were "ab"
+   * **q₃:** found "aba" - accept state
+   * **Start:** q₀
+   * **Accept:** F = {q₃}
 
-      Strategy: Track the longest prefix of "aba" that matches a suffix of the input read so far.
+   **Transition Table:**
+   
+   .. math::
       
-      States: {q₀, q₁, q₂, q₃}
-      q₀: no useful progress toward "aba"
-      q₁: last character was 'a' (potential start of "aba")  
-      q₂: last two characters were "ab"
-      q₃: found "aba" - accept state
+      \begin{array}{c|cc}
+      \delta & a & b \\
+      \hline
+      \rightarrow q_0 & q_1 & q_0 \\
+      q_1 & q_1 & q_2 \\
+      q_2 & q_3 & q_0 \\
+      q_3^* & q_1 & q_0
+      \end{array}
+
+   **State Diagram:**
+
+   .. raw:: latex
+
+      \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, auto]
+      \tikzstyle{every state}=[fill=lightpink!20,draw=purple,text=black,minimum size=1cm]
       
-      Start: q₀
-      Accept: F = {q₃}
+      \node[state, initial] (q0) {$q_0$};
+      \node[state, right of=q0] (q1) {$q_1$};
+      \node[state, right of=q1] (q2) {$q_2$};
+      \node[state, accepting, right of=q2] (q3) {$q_3$};
       
-      Transitions:
-      δ(q₀, a) = q₁    δ(q₀, b) = q₀
-      δ(q₁, a) = q₁    δ(q₁, b) = q₂
-      δ(q₂, a) = q₃    δ(q₂, b) = q₀  
-      δ(q₃, a) = q₁    δ(q₃, b) = q₀
-      
-      Note: From q₃, we still need to track for more "aba" patterns
-      
-      Example trace for "aababa":
-      q₀ --a--> q₁ --a--> q₁ --b--> q₂ --a--> q₃ --b--> q₀ --a--> q₁
-      Final state q₁ ∉ F, but we passed through q₃, so... 
-      
-      Wait - let me reconsider. Once in q₃, we stay accepting:
-      
-      Better design:
-      δ(q₃, a) = q₃    δ(q₃, b) = q₃
-      
-      Or track ongoing patterns while staying accepting.
+      \path[->]
+      (q0) edge[loop above] node {b} (q0)
+           edge node {a} (q1)
+      (q1) edge[loop above] node {a} (q1)
+           edge node {b} (q2)
+      (q2) edge node {a} (q3)
+           edge[bend left=60] node {b} (q0)
+      (q3) edge[bend left] node {a} (q1)
+           edge[bend left=80] node {b} (q0);
+      \end{tikzpicture}
+      \end{center}
+
+   **Example Trace for "aababa":**
+   q₀ →ᵃ q₁ →ᵃ q₁ →ᵇ q₂ →ᵃ q₃ →ᵇ q₀ →ᵃ q₁
+   
+   **Result:** String accepted because we passed through q₃ (accepting state).
 
 ----
 
