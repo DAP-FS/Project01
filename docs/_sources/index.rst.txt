@@ -1,81 +1,110 @@
-====================================
-Interactive Learning Hub
-====================================
+===========================================
+Theory of Computation - Interactive Learning Hub
+===========================================
 
 .. note::
 
-   **📢 Announcement:**  
-   Explore our *Chapter-wise Interactive Learning Modules*!  
-   Each chapter includes **theory, examples, exercises with hints & solutions, and video resources**.  
-   **Target Audience:** BTech/BE/BCA/MCA Students
+   **📢 Course Announcement:**  
+   Welcome to *Theory of Computation Interactive Learning Modules*!  
+   Each chapter includes **formal definitions, step-by-step constructions, solved examples, and practice problems**.  
+   **Target Audience:** BTech/BE/BCA/MCA Students (Semester 4-6)
 
 ----
 
-**About This Resource**
-========================
+**About This Course**
+=====================
 
-This hub provides **structured, interactive learning modules** designed to build strong fundamentals in computer science concepts.
+This comprehensive resource covers the **mathematical foundations of computation**, exploring what can be computed, how efficiently, and the fundamental limits of computational systems.
 
-**Key Features:**
+**Course Objectives:**
 
-* 📚 **Comprehensive Theory** - Clear explanations with examples
-* 💻 **Hands-on Coding** - Interactive code blocks and exercises  
-* 🎯 **Progressive Learning** - Hints and step-by-step solutions
-* 🎥 **Video Resources** - Visual demonstrations and explanations
-* ✅ **Self-Assessment** - Practice questions with immediate feedback
+* 🔤 **Formal Languages** - Understand language hierarchies and classifications
+* 🤖 **Automata Theory** - Master finite automata, pushdown automata, and Turing machines  
+* ⚙️ **Computational Models** - Analyze different models of computation
+* 🧮 **Complexity Theory** - Explore time and space complexity classes
+* 🚫 **Computability** - Understand decidable and undecidable problems
 
 ----
 
-**Learning Path**
-=================
+**Course Structure**
+====================
 
 .. toctree::
    :maxdepth: 2
-   :caption: 📖 Course Chapters
+   :caption: 📚 Core Modules
    :numbered:
 
-   chapter01
-   chapter02
-   chapter03
-   chapter04
-   chapter05
-   summary_and_resources
+   introduction
+   finite_automata
+   regular_expressions
+   context_free_grammars
+   pushdown_automata
+   turing_machines
+   computability
+   complexity_theory
 
 .. toctree::
    :maxdepth: 1
-   :caption: 🔧 Additional Resources
+   :caption: 🔧 Supplementary Materials
    
-   prerequisites
-   troubleshooting
-   glossary
+   mathematical_prerequisites
+   notation_reference
+   proof_techniques
+   exam_preparation
+   solutions_manual
 
 ----
 
-**How to Use This Resource**
-============================
+**Learning Methodology**
+========================
 
-1. **Start with Prerequisites** - Ensure you have the required background
-2. **Follow Sequential Order** - Each chapter builds on previous concepts
-3. **Practice Actively** - Attempt exercises before viewing solutions
-4. **Use Hints Wisely** - Try solving first, then use hints if needed
-5. **Watch Videos** - Reinforce learning with visual explanations
+**🎯 For Weak Students:**
+
+1. **Visual Learning** - Each concept includes state diagrams and visual representations
+2. **Step-by-Step Construction** - Detailed algorithms for building automata
+3. **Graded Examples** - Simple to complex problem progression
+4. **Hint System** - Progressive clues before revealing solutions
+5. **Common Mistakes** - Highlighted pitfalls and how to avoid them
 
 .. tip::
    
-   **💡 Study Tip:** Each chapter is designed for 1-2 hour study sessions. Take breaks between chapters for better retention!
+   **💡 Study Strategy:** 
+   
+   * Spend 15 minutes reviewing previous chapter before starting new content
+   * Practice drawing automata by hand before using tools
+   * Work through examples step-by-step without jumping to solutions
+   * Form study groups to discuss formal proofs
+
+----
+
+**Prerequisites Check**
+======================
+
+.. admonition:: ✅ Self-Assessment
+   :class: important
+
+   **Required Background:**
+   
+   * [ ] Discrete Mathematics (sets, relations, functions)
+   * [ ] Basic Graph Theory (nodes, edges, paths)
+   * [ ] Proof Techniques (direct, contradiction, induction)
+   * [ ] Boolean Algebra fundamentals
+   
+   **If you need review:** :doc:`mathematical_prerequisites`
 
 ----
 
 **Getting Started**
 ===================
 
-Ready to begin? Click on **Chapter 1** in the navigation panel or use the link below:
+.. admonition:: 🚀 Ready to Begin?
+   :class: tip
 
-:doc:`Start Learning → Chapter 1 <chapter01>`
-
-.. admonition:: Need Help?
-   :class: important
-
-   * Check :doc:`prerequisites` if you're unsure about background knowledge
-   * Visit :doc:`troubleshooting` for technical issues
-   * Use :doc:`glossary` for quick term definitions
+   **Recommended Study Path:**
+   
+   1. Review :doc:`mathematical_prerequisites` if needed
+   2. Start with :doc:`introduction` for course overview
+   3. Master :doc:`finite_automata` before proceeding
+   4. Use :doc:`notation_reference` as needed throughout
+   
+   :doc:`Start Your Journey → Introduction <introduction>`
