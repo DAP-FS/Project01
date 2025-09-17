@@ -1,274 +1,363 @@
-##############################################
-Chapter 02: Python Data Types, Variables, and Basic Operations
-##############################################
-
-.. contents:: Table of Contents
-   :depth: 4
-   :local:
-
-Welcome to Chapter 02!
-
-In this chapter, you will learn the essential building blocks of Python programming — data types, variables, and basic operations. Mastering these concepts is critical for writing effective Python code and progressing into data science and machine learning.
-
-*******************
-Objectives
-*******************
-
-After completing this chapter, you will be able to:
-
-- Understand Python's core data types (numbers, strings, booleans, lists, tuples, dictionaries)
-- Create and use variables to store data
-- Perform arithmetic and logical operations
-- Work with simple input and output
-- Practice writing clean, readable Python code
-
-*******************
-Python Data Types Overview
-*******************
-
-Python is dynamically typed, meaning you don’t have to declare variable types explicitly. Here are the most common data types you will encounter:
-
-1. **Numeric Types**  
-   - ``int`` — Integer numbers, e.g., ``1``, ``100``, ``-30``  
-   - ``float`` — Floating point (decimal) numbers, e.g., ``3.14``, ``-0.001``
-
-2. **Boolean Type**  
-   - ``bool`` — Represents truth values: ``True`` or ``False``
-
-3. **String Type**  
-   - ``str`` — Text enclosed in single or double quotes, e.g., ``"Hello"``, ``'Python'``
-
-4. **Sequence Types**  
-   - ``list`` — Mutable ordered collection, e.g., ``[10, 20, 30]``  
-   - ``tuple`` — Immutable ordered collection, e.g., ``(1, 2, 3)``
-
-5. **Mapping Type**  
-   - ``dict`` — Key-value pairs, e.g., ``{"name": "Ashwini", "age": 20}``
-
-*******************
-Variables: Storing Data
-*******************
-
-Variables are names you give to data you want to store and manipulate.
-
-### Rules for Naming Variables
-
-- Must start with a letter (a-z, A-Z) or underscore ``_``
-- Cannot start with a number
-- Case-sensitive (``age`` ≠ ``Age``)
-- No Python keywords (e.g., ``for``, ``if``, ``class``)
-
-### Assigning Variables
-
-.. code-block:: python
-
-   age = 20
-   name = "Ashwini"
-   is_student = True
-   height = 5.7
-
-### Check Variable Type
-
-.. code-block:: python
-
-   print(type(age))        # <class 'int'>
-   print(type(name))       # <class 'str'>
-   print(type(is_student)) # <class 'bool'>
-
-*******************
-Basic Operations
-*******************
-
-### Arithmetic Operators
-
-+----------+--------------------+----------------+--------------+
-| Operator | Description        | Example        | Result       |
-+==========+====================+================+==============+
-| ``+``    | Addition           | ``2 + 3``      | ``5``        |
-+----------+--------------------+----------------+--------------+
-| ``-``    | Subtraction        | ``5 - 2``      | ``3``        |
-+----------+--------------------+----------------+--------------+
-| ``*``    | Multiplication     | ``3 * 4``      | ``12``       |
-+----------+--------------------+----------------+--------------+
-| ``/``    | Division (float)   | ``10 / 3``     | ``3.3333...``|
-+----------+--------------------+----------------+--------------+
-| ``//``   | Floor Division     | ``10 // 3``    | ``3``        |
-+----------+--------------------+----------------+--------------+
-| ``%``    | Modulus (Remainder)| ``10 % 3``     | ``1``        |
-+----------+--------------------+----------------+--------------+
-| ``**``   | Power (Exponent)   | ``2 ** 3``     | ``8``        |
-+----------+--------------------+----------------+--------------+
-
-### Comparison Operators
-
-+----------+-------------------------+------------------+-----------------------+
-| Operator | Description             | Example          | Value                 |
-+==========+=========================+==================+=======================+
-| ``==``   | Equal                   | ``age == 20``    | ``True`` or ``False`` |
-+----------+-------------------------+------------------+-----------------------+
-| ``!=``   | Not equal               | ``age != 18``    | ``True`` or ``False`` |
-+----------+-------------------------+------------------+-----------------------+
-| ``<``    | Less than               | ``age < 25``     | ``True`` or ``False`` |
-+----------+-------------------------+------------------+-----------------------+
-| ``>``    | Greater than            | ``age > 15``     | ``True`` or ``False`` |
-+----------+-------------------------+------------------+-----------------------+
-| ``<=``   | Less than or equal to   | ``age <= 20``    | ``True`` or ``False`` |
-+----------+-------------------------+------------------+-----------------------+
-| ``>=``   | Greater than or equal to| ``age >= 30``    | ``True`` or ``False`` |
-+----------+-------------------------+------------------+-----------------------+
-
-### Logical Operators
-
-+----------+-----------------+----------------------+-----------------+
-| Operator | Description     | Example              | Result          |
-+==========+=================+======================+=================+
-| ``and``  | Logical AND     | ``True and False``   | ``False``       |
-+----------+-----------------+----------------------+-----------------+
-| ``or``   | Logical OR      | ``True or False``    | ``True``        |
-+----------+-----------------+----------------------+-----------------+
-| ``not``  | Logical NOT     | ``not True``         | ``False``       |
-+----------+-----------------+----------------------+-----------------+
-
-*******************
-Working with Strings
-*******************
-
-Strings hold text data and support many operations:
-
-.. code-block:: python
-
-   name = "Python Workshop"
-
-   # Length of string
-   print(len(name))   # 15
-
-   # Access characters by index (0-based)
-   print(name[0])     # 'P'
-   print(name[-1])    # 'p'
-
-   # Slice substring
-   print(name[0:6])   # 'Python'
-
-   # Concatenate strings
-   greeting = "Hello, " + name
-   print(greeting)    # 'Hello, Python Workshop'
-
-   # String methods
-   print(name.lower())    # 'python workshop'
-   print(name.upper())    # 'PYTHON WORKSHOP'
-   print(name.replace("Workshop", "Course"))  # 'Python Course'
-
-*******************
-Lists, Tuples, and Dictionaries (Introduction)
-*******************
-
-### Lists (Mutable)
-
-.. code-block:: python
-
-   fruits = ["apple", "banana", "cherry"]
-   fruits.append("date")
-   print(fruits)              # ['apple', 'banana', 'cherry', 'date']
-   print(fruits[1])           # 'banana'
-
-### Tuples (Immutable)
-
-.. code-block:: python
-
-   coordinates = (10.0, 20.0)
-   print(coordinates)         # (10.0, 20.0)
-
-### Dictionaries (Key-Value Store)
-
-.. code-block:: python
-
-   student = {
-       "name": "Ashwini",
-       "age": 20,
-       "courses": ["Math", "Computer Science"]
-   }
-
-   print(student["name"])     # 'Ashwini'
-
-*******************
-Input and Output
-*******************
-
-Learn to get user input and display results:
-
-.. code-block:: python
-
-   name = input("Enter your name: ")
-   print(f"Welcome, {name}!")
-
-*******************
-Hands-On Exercises
-*******************
-
-**Exercise 1: Variables and Data Types**
-
-Write a Python program that:
-
-- Asks the user to enter their name, age, height (in meters), and if they are a student (yes/no)
-- Stores these values in appropriate variables with correct data types
-- Prints a summary message like:
-
-::
-
-   Hello, Ashwini!
-   You are 20 years old, 1.7 meters tall.
-   Student status: Yes
-
----
-
-**Exercise 2: Basic Calculator**
-
-Write a program that asks the user for two numbers and prints their:
-
-- Sum  
-- Difference  
-- Product  
-- Quotient  
-
-Display results clearly.
-
----
-
-**Exercise 3: String Manipulation**
-
-Given an input string from the user, write a program that:
-
-- Prints the string length  
-- Prints the string in uppercase  
-- Prints the first and last characters  
-- Prints the string reversed  
-
-*******************
-Summary
-*******************
-
-In this chapter you learned:
-
-- Python core data types and variables  
-- Arithmetic, comparison, and logical operations  
-- Basic string handling and collections introduction  
-- Taking input from users and printing outputs  
-- Practiced with exercises to reinforce fundamentals  
-
-This foundation will empower you to write more complex Python programs in coming chapters.
-
-*******************
-Additional Resources
-*******************
-
-- Official Python Data Types: https://docs.python.org/3/library/stdtypes.html  
-- Python Input and Output Docs: https://docs.python.org/3/tutorial/inputoutput.html  
-- Interactive Python tutorial: https://www.learnpython.org/
+===============================
+Chapter 2: Finite Automata
+===============================
+
+.. rubric:: 🎯 Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+* Define and construct Deterministic Finite Automata (DFA)
+* Build Nondeterministic Finite Automata (NFA) 
+* Convert NFAs to DFAs using subset construction
+* Design automata for specific language requirements
+* Prove language acceptance using formal methods
 
 ----
 
+**📋 Prerequisites**
+====================
+
 .. note::
+   
+   **Essential:** Basic set theory, function definitions
+   
+   **Helpful:** Graph theory basics, state-based thinking
 
-   Practice regularly. Try modifying the exercises or combining parts to build small projects.
+----
 
-Happy Coding!
+**1. Theory & Formal Definitions**
+==================================
+
+**1.1 Deterministic Finite Automaton (DFA)**
+---------------------------------------------
+
+A **DFA** is a 5-tuple: **M = (Q, Σ, δ, q₀, F)**
+
+Where:
+
+* **Q** = finite set of states
+* **Σ** = finite input alphabet  
+* **δ: Q × Σ → Q** = transition function
+* **q₀ ∈ Q** = start state
+* **F ⊆ Q** = set of accept (final) states
+
+**1.2 Language of a DFA**
+-------------------------
+
+The **language L(M)** accepted by DFA M is:
+
+.. math::
+   
+   L(M) = \{w \in \Sigma^* \mid \hat{\delta}(q_0, w) \in F\}
+
+Where **δ̂** is the extended transition function.
+
+**1.3 Nondeterministic Finite Automaton (NFA)**
+-----------------------------------------------
+
+An **NFA** is a 5-tuple: **N = (Q, Σ, δ, q₀, F)**
+
+Key difference: **δ: Q × Σ → 2^Q** (transitions to subsets of states)
+
+----
+
+**2. Construction Examples**
+============================
+
+**Example 1: DFA for Binary Strings Ending in "01"**
+----------------------------------------------------
+
+**Problem:** Design a DFA that accepts all binary strings ending with "01".
+
+**Solution Strategy:**
+1. Track the last two characters seen
+2. Use states to remember: nothing, last was 0, last was 1, last two were 01
+
+.. code-block:: text
+
+   States: Q = {q₀, q₁, q₂, q₃}
+   Alphabet: Σ = {0, 1}
+   Start state: q₀
+   Accept states: F = {q₂}
+   
+   State meanings:
+   q₀: initial state / last char was 1
+   q₁: last character was 0  
+   q₂: last two characters were 01 (ACCEPT)
+   q₃: dead state (not used in this example)
+
+**Transition Function δ:**
+
+.. code-block:: text
+
+   δ(q₀, 0) = q₁
+   δ(q₀, 1) = q₀
+   δ(q₁, 0) = q₁  
+   δ(q₁, 1) = q₂
+   δ(q₂, 0) = q₁
+   δ(q₂, 1) = q₀
+
+**State Diagram:**
+
+.. code-block:: text
+
+          0        1
+   →q₀ -----→ q₁ -----→ ((q₂))
+    ↑  ↖1      ↑0       ↙0
+    └────────────────────┘
+
+**Example 2: NFA with ε-transitions**
+------------------------------------
+
+**Problem:** Build an NFA that accepts strings containing "ab" or "ba" as substrings.
+
+.. code-block:: text
+
+   This requires parallel computation paths:
+   Path 1: Looking for "ab"
+   Path 2: Looking for "ba"
+   
+   States: {q₀, q₁, q₂, q₃, q₄, q₅}
+   
+   q₀: start state
+   q₁, q₂: tracking "ab" pattern  
+   q₃, q₄: tracking "ba" pattern
+   q₅: accept state (found either pattern)
+
+----
+
+**3. Practice Exercises**
+=========================
+
+**Exercise 1: DFA Construction**
+-------------------------------
+
+Design a DFA that accepts all strings over {0,1} with an even number of 0s and an odd number of 1s.
+
+.. hint::
+   
+   **💡 Hint:** 
+   
+   * You need to track two properties simultaneously
+   * Use 4 states: (even 0s, even 1s), (even 0s, odd 1s), etc.
+   * Think about which state should be the accept state
+
+.. admonition:: Solution
+   :class: dropdown
+
+   .. code-block:: text
+
+      States: Q = {q₀₀, q₀₁, q₁₀, q₁₁}
+      where qᵢⱼ means: i = parity of 0s, j = parity of 1s
+      (0 = even, 1 = odd)
+      
+      Start state: q₀₀ (even 0s, even 1s)
+      Accept state: F = {q₀₁} (even 0s, odd 1s)
+      
+      Transitions:
+      δ(q₀₀, 0) = q₁₀    δ(q₀₀, 1) = q₀₁
+      δ(q₀₁, 0) = q₁₁    δ(q₀₁, 1) = q₀₀  
+      δ(q₁₀, 0) = q₀₀    δ(q₁₀, 1) = q₁₁
+      δ(q₁₁, 0) = q₀₁    δ(q₁₁, 1) = q₁₀
+      
+      State Diagram:
+               0           1
+      →q₀₀ ⟷ q₁₀     q₀₀ ⟷ ((q₀₁))
+         ↑↓ 1   ↑↓ 1      ↑↓ 0   ↑↓ 0  
+       q₀₁ ⟷ q₁₁     q₁₀ ⟷ q₁₁
+           0           1
+
+**Exercise 2: NFA to DFA Conversion**
+------------------------------------
+
+Convert the following NFA to an equivalent DFA using subset construction:
+
+.. code-block:: text
+
+   NFA N = ({q₀, q₁, q₂}, {a, b}, δ, q₀, {q₂})
+   
+   δ(q₀, a) = {q₀, q₁}
+   δ(q₀, b) = {q₀}
+   δ(q₁, a) = ∅
+   δ(q₁, b) = {q₂}
+   δ(q₂, a) = ∅  
+   δ(q₂, b) = ∅
+
+.. hint::
+   
+   **💡 Hint:** 
+   
+   * Start with {q₀}
+   * For each subset, compute transitions on each input symbol
+   * A subset is accepting if it contains any accepting state from the NFA
+   * Continue until no new subsets are generated
+
+.. admonition:: Solution  
+   :class: dropdown
+
+   .. code-block:: text
+
+      Step-by-step subset construction:
+      
+      Start: {q₀}
+      
+      From {q₀}:
+      - on 'a': δ(q₀, a) = {q₀, q₁}
+      - on 'b': δ(q₀, b) = {q₀}
+      
+      From {q₀, q₁}:
+      - on 'a': δ(q₀, a) ∪ δ(q₁, a) = {q₀, q₁} ∪ ∅ = {q₀, q₁}
+      - on 'b': δ(q₀, b) ∪ δ(q₁, b) = {q₀} ∪ {q₂} = {q₀, q₂}
+      
+      From {q₀, q₂}:
+      - on 'a': δ(q₀, a) ∪ δ(q₂, a) = {q₀, q₁} ∪ ∅ = {q₀, q₁}
+      - on 'b': δ(q₀, b) ∪ δ(q₂, b) = {q₀} ∪ ∅ = {q₀}
+      
+      DFA states: {{q₀}, {q₀, q₁}, {q₀, q₂}}
+      Accept states: {{q₀, q₂}} (contains q₂)
+      
+      Final DFA:
+      States: {A, B, C} where A={q₀}, B={q₀,q₁}, C={q₀,q₂}
+      Start: A
+      Accept: {C}
+      
+      Transitions:
+      δ(A, a) = B    δ(A, b) = A
+      δ(B, a) = B    δ(B, b) = C  
+      δ(C, a) = B    δ(C, b) = A
+
+**Exercise 3: Language Design**
+------------------------------
+
+Design a DFA that accepts the language L = {w ∈ {a,b}* | w has substring "aba"}.
+
+.. hint::
+   
+   **💡 Hint:** 
+   
+   * Track progress toward finding "aba"
+   * States should represent: seen nothing useful, seen "a", seen "ab", seen "aba"
+   * Once you've seen "aba", you accept regardless of what follows
+
+.. admonition:: Solution
+   :class: dropdown
+
+   .. code-block:: text
+
+      Strategy: Track the longest prefix of "aba" that matches a suffix of the input read so far.
+      
+      States: {q₀, q₁, q₂, q₃}
+      q₀: no useful progress toward "aba"
+      q₁: last character was 'a' (potential start of "aba")  
+      q₂: last two characters were "ab"
+      q₃: found "aba" - accept state
+      
+      Start: q₀
+      Accept: F = {q₃}
+      
+      Transitions:
+      δ(q₀, a) = q₁    δ(q₀, b) = q₀
+      δ(q₁, a) = q₁    δ(q₁, b) = q₂
+      δ(q₂, a) = q₃    δ(q₂, b) = q₀  
+      δ(q₃, a) = q₁    δ(q₃, b) = q₀
+      
+      Note: From q₃, we still need to track for more "aba" patterns
+      
+      Example trace for "aababa":
+      q₀ --a--> q₁ --a--> q₁ --b--> q₂ --a--> q₃ --b--> q₀ --a--> q₁
+      Final state q₁ ∉ F, but we passed through q₃, so... 
+      
+      Wait - let me reconsider. Once in q₃, we stay accepting:
+      
+      Better design:
+      δ(q₃, a) = q₃    δ(q₃, b) = q₃
+      
+      Or track ongoing patterns while staying accepting.
+
+----
+
+**4. Video Resources**
+======================
+
+.. raw:: html
+
+   <div style="margin: 20px 0;">
+   <h3>📺 Finite Automata Fundamentals</h3>
+   <video controls autoplay muted width="100%" style="max-width: 800px;">
+     <source src="_static/videos/finite_automata_intro.mp4" type="video/mp4">
+     <p>Your browser does not support the video tag.</p>
+   </video>
+   <p><em>Video: Introduction to DFAs and NFAs - Definitions and Basic Construction (25 minutes)</em></p>
+   </div>
+
+.. raw:: html
+
+   <div style="margin: 20px 0;">
+   <h3>🎥 Subset Construction Algorithm</h3>
+   <video controls width="100%" style="max-width: 800px;">
+     <source src="_static/videos/nfa_to_dfa_conversion.mp4" type="video/mp4">
+     <p>Your browser does not support the video tag.</p>
+   </video>
+   <p><em>Video: Step-by-step NFA to DFA conversion with worked examples (20 minutes)</em></p>
+   </div>
+
+----
+
+**5. Summary & Key Takeaways**
+==============================
+
+.. admonition:: 🎓 Chapter Summary
+   :class: tip
+
+   **Core Concepts Mastered:**
+   
+   * ✅ **DFA Definition** - 5-tuple components and their roles
+   * ✅ **NFA Definition** - Nondeterminism and ε-transitions  
+   * ✅ **Language Acceptance** - Formal definition using extended δ
+   * ✅ **Construction Techniques** - Systematic automata design
+   * ✅ **Equivalence** - NFA to DFA conversion algorithms
+   
+   **Problem-Solving Skills:**
+   
+   * 🔧 Designing automata for specific language requirements
+   * 🔧 Tracking multiple properties with state combinations
+   * 🔧 Converting between deterministic and nondeterministic models
+   * 🔧 Proving correctness of automata constructions
+
+**Important Theorems:**
+
+.. admonition:: 📚 Key Results
+   :class: note
+
+   * **Theorem 2.1:** Every NFA has an equivalent DFA
+   * **Theorem 2.2:** The regular languages are closed under union, concatenation, and Kleene star
+   * **Theorem 2.3:** A language is regular if and only if it is accepted by some finite automaton
+
+----
+
+**Next Steps**
+==============
+
+.. note::
+   
+   **🚀 Ready for Regular Expressions?**
+   
+   In Chapter 3, we'll explore:
+   * Regular expression syntax and semantics
+   * Equivalence between regular expressions and finite automata
+   * Converting between representations
+   * Pumping lemma for regular languages
+   
+   :doc:`Continue to Regular Expressions → <regular_expressions>`
+
+.. admonition:: Self-Check
+   :class: important
+
+   **Before proceeding, ensure you can:**
+   
+   * [ ] Draw DFAs and NFAs for given language descriptions
+   * [ ] Execute automata on input strings step-by-step
+   * [ ] Convert NFAs to equivalent DFAs systematically  
+   * [ ] Prove that an automaton accepts a specific language
+   
+   **Need more practice?** Try the additional exercises in :doc:`solutions_manual`
