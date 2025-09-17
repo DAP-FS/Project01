@@ -1,50 +1,81 @@
-=============================
-Welcome to the Python Workshop!
-=============================
+====================================
+Interactive Learning Hub
+====================================
 
 .. note::
 
-   **Announcement:**  
-   Our hands-on Python for Beginners workshop is here!  
-   Duration: **6 hours**  
-   Suitable for: **BTech students interested in Machine Learning and Data Science**
+   **📢 Announcement:**  
+   Explore our *Chapter-wise Interactive Learning Modules*!  
+   Each chapter includes **theory, examples, exercises with hints & solutions, and video resources**.  
+   **Target Audience:** BTech/BE/BCA/MCA Students
 
 ----
 
-**About the Workshop**
+**About This Resource**
+========================
 
-Welcome! This beginner-friendly workshop will guide you through essential Python programming skills, step by step.  
-Through interactive notebooks and practical examples, you’ll gain the confidence to start your journey in data science and machine learning.
+This hub provides **structured, interactive learning modules** designed to build strong fundamentals in computer science concepts.
 
-**What to Expect:**
+**Key Features:**
 
-- A clear, modular structure — progress from basics to real-world applications
-- Notebook-based lessons for hands-on practice
-- Friendly for beginners — *no prior coding required!*
-- Q&A and mini-project sessions
-
-**Schedule Overview:**
-
-- Python basics and programming concepts
-- Data analysis and visualization
-- An introduction to machine learning
+* 📚 **Comprehensive Theory** - Clear explanations with examples
+* 💻 **Hands-on Coding** - Interactive code blocks and exercises  
+* 🎯 **Progressive Learning** - Hints and step-by-step solutions
+* 🎥 **Video Resources** - Visual demonstrations and explanations
+* ✅ **Self-Assessment** - Practice questions with immediate feedback
 
 ----
 
-**Let’s get started! Use the navigation at left or below to jump into each module.**
+**Learning Path**
+=================
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Workshop Modules
+   :maxdepth: 2
+   :caption: 📖 Course Chapters
+   :numbered:
 
-   intro
-   speakers
    chapter01
    chapter02
    chapter03
+   chapter04
+   chapter05
+   summary_and_resources
 
+.. toctree::
+   :maxdepth: 1
+   :caption: 🔧 Additional Resources
+   
+   prerequisites
+   troubleshooting
+   glossary
 
 ----
 
-**If you have questions or need help, watch for announcements here or check the resources page. Happy coding!**
+**How to Use This Resource**
+============================
 
+1. **Start with Prerequisites** - Ensure you have the required background
+2. **Follow Sequential Order** - Each chapter builds on previous concepts
+3. **Practice Actively** - Attempt exercises before viewing solutions
+4. **Use Hints Wisely** - Try solving first, then use hints if needed
+5. **Watch Videos** - Reinforce learning with visual explanations
+
+.. tip::
+   
+   **💡 Study Tip:** Each chapter is designed for 1-2 hour study sessions. Take breaks between chapters for better retention!
+
+----
+
+**Getting Started**
+===================
+
+Ready to begin? Click on **Chapter 1** in the navigation panel or use the link below:
+
+:doc:`Start Learning → Chapter 1 <chapter01>`
+
+.. admonition:: Need Help?
+   :class: important
+
+   * Check :doc:`prerequisites` if you're unsure about background knowledge
+   * Visit :doc:`troubleshooting` for technical issues
+   * Use :doc:`glossary` for quick term definitions
